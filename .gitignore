@@ -1,0 +1,22 @@
+node_modules
+dist
+coverage
+.vite
+*.local
+*.log
+.DS_Store
+Thumbs.db
+.trellis/.runtime
+.pi/
+.trellis/
+.dist/
+.claude/
+SaDuck-API文档.md
+
+# Private chat exports (never commit)
+/问候交流.json
+/布局模块需求描述优化.json
+
+# Local environment overrides
+.env
+.env.*

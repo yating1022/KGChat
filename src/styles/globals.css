@@ -1,0 +1,368 @@
+@import 'tailwindcss';
+@import '../skins/tokens.css';
+@import './chat.css';
+@import '../skins/gemini/gemini.css';
+@import '../skins/chatgpt/chatgpt.css';
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  height: 100dvh;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+p {
+  overflow-wrap: anywhere;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Neutral last-resort fallback rendered outside the chat shell. */
+.app-error {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  padding: 24px;
+  background: var(--bg);
+  color: var(--text);
+  text-align: center;
+}
+
+.app-error-card {
+  max-width: 420px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-popover);
+}
+
+.app-error-title {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.app-error-text {
+  margin: 0 0 18px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.app-error-action {
+  padding: 9px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-size: 14px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Brand                                                               */
+/* ------------------------------------------------------------------ */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text);
+  line-height: 1;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+/* Official Gemini sparkle (asset downloaded from gstatic). */
+.brand-sparkle {
+  display: block;
+  flex: none;
+  object-fit: contain;
+  user-select: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* Login dialog                                                        */
+/* ------------------------------------------------------------------ */
+
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  overflow-y: auto;
+  background: rgb(15 15 15 / 42%);
+  backdrop-filter: blur(2px);
+}
+
+.login-card {
+  width: min(420px, 100%);
+  padding: 28px;
+  background: var(--bg-elevated);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius-card) + 4px);
+  box-shadow: var(--shadow-popover);
+}
+
+[data-skin='gemini'] .login-card,
+.login-card--gemini {
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgb(31 31 31 / 20%);
+}
+
+[data-skin='chatgpt'] .login-card,
+.login-card--chatgpt {
+  border-radius: 16px;
+}
+
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.login-brand .brand-wordmark {
+  color: var(--text-muted);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.login-title {
+  margin: 18px 0 6px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.login-subtitle {
+  margin: 0 0 22px;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.login-label {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--composer-border);
+  border-radius: 14px;
+  outline: none;
+  background: var(--composer-bg);
+  color: var(--text);
+  transition:
+    border-color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.login-input::placeholder {
+  color: var(--text-subtle);
+}
+
+.login-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.login-code-row {
+  display: flex;
+  gap: 8px;
+}
+
+.login-code-row .login-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.login-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.login-check input {
+  margin-top: 2px;
+  accent-color: var(--accent);
+}
+
+.login-check-hint {
+  color: var(--text-subtle);
+  font-size: 12px;
+}
+
+.login-error {
+  margin: 0;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--danger) 10%, transparent);
+  color: var(--danger);
+  font-size: 13px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.login-hint {
+  margin: 0;
+  color: var(--success);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.login-primary {
+  width: 100%;
+  padding: 11px 16px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 120ms ease;
+}
+
+.login-primary:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--accent) 88%, black);
+}
+
+.login-secondary {
+  flex: none;
+  padding: 9px 13px;
+  border: 1px solid var(--chip-border);
+  border-radius: 12px;
+  background: var(--chip-bg);
+  color: var(--text);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.login-secondary:hover:not(:disabled) {
+  background: var(--chip-hover);
+}
+
+.login-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.login-link {
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 520px) {
+  .login-card {
+    padding: 22px;
+  }
+
+  .login-code-row {
+    flex-direction: column;
+  }
+
+  .login-secondary {
+    width: 100%;
+  }
+}

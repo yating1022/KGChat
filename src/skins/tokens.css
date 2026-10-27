@@ -1,0 +1,272 @@
+/* ------------------------------------------------------------------ */
+/* Skin tokens                                                         */
+/* `SkinProvider` sets data-skin / data-theme / data-branding on <html>. */
+/* ------------------------------------------------------------------ */
+
+:root {
+  color-scheme: light;
+
+  --bg: #faf9f9;
+  --bg-elevated: #ffffff;
+  --sidebar-bg: #f7f8fa;
+  --sidebar-hover: #eceef1;
+  --sidebar-active: #e8eaed;
+  --text: #1f1f1f;
+  --text-muted: #5f6368;
+  --text-subtle: #80868b;
+  --border: #e3e3e3;
+  --accent: #0b57d0;
+  --accent-contrast: #ffffff;
+  --composer-bg: #ffffff;
+  --composer-border: #e3e3e3;
+  --composer-shadow:
+    0 1px 3px rgb(0 0 0 / 8%),
+    0 4px 20px rgb(0 0 0 / 6%);
+  --chip-bg: #f1f4f9;
+  --chip-border: #e3e3e3;
+  --chip-hover: #e8edf5;
+  --chip-selected-bg: #d3e3fd;
+  --chip-selected-text: #041e49;
+  --option-radius: 12px;
+  --danger: #b3261e;
+  --warning: #8f5a00;
+  --success: #146c2e;
+  --font-ui: 'Google Sans Flex', 'Google Sans Text', 'Segoe UI', 'PingFang SC',
+    'Microsoft YaHei', sans-serif;
+  --font-display: var(--font-ui);
+  --radius-composer: 28px;
+  --radius-card: 24px;
+  --shadow-popover: 0 12px 32px rgb(0 0 0 / 16%);
+
+  --rail-width: 288px;
+  --rail-radius: 999px;
+  --voice-bg: #0f6fff;
+  --rail-border: transparent;
+  --rail-padding: 12px 10px 14px;
+  --topbar-height: 60px;
+  --content-max: 760px;
+  --composer-max: 704px;
+  --greeting-size: 44px;
+  --greeting-weight: 400;
+  --greeting-letter: -0.02em;
+  --user-bubble-bg: #f0f4f9;
+  --user-bubble-text: #1f1f1f;
+  --assistant-avatar-bg: #f1f4f9;
+  --assistant-avatar-color: #5f6368;
+  --landing-glow: rgb(11 87 208 / 14%);
+  --landing-glow-soft: rgb(168 199 250 / 34%);
+  --send-bg: var(--accent);
+  --send-contrast: var(--accent-contrast);
+  --account-pill-bg: #d3e3fd;
+  --account-pill-text: #041e49;
+  --account-pill-border: transparent;
+  --account-avatar-bg: #0b57d0;
+  --account-avatar-text: #ffffff;
+  --banner-bg: #fff7e0;
+  --banner-border: #f0d58a;
+  --banner-text: #6b4a00;
+  --focus-ring: color-mix(in srgb, var(--accent) 32%, transparent);
+}
+
+[data-skin='chatgpt'] {
+  --bg: #ffffff;
+  --bg-elevated: #ffffff;
+  --sidebar-bg: #f9f9f9;
+  --sidebar-hover: #f0f0f0;
+  --sidebar-active: #ececec;
+  --text: #0d0d0d;
+  --text-muted: #6b6b6b;
+  --text-subtle: #8f8f8f;
+  --border: #ececec;
+  --accent: #0d0d0d;
+  --accent-contrast: #ffffff;
+  --composer-bg: #ffffff;
+  --composer-border: #e5e5e5;
+  --composer-shadow: 0 1px 2px rgb(0 0 0 / 6%);
+  --chip-bg: #f7f7f7;
+  --chip-border: #ececec;
+  --chip-hover: #f0f0f0;
+  --chip-selected-bg: #ececec;
+  --chip-selected-text: #0d0d0d;
+  --option-radius: 999px;
+  --font-ui: 'OpenAI Sans', 'Inter', 'Segoe UI', 'PingFang SC', 'Microsoft YaHei',
+    sans-serif;
+  --font-display: var(--font-ui);
+  --radius-composer: 26px;
+  --radius-card: 16px;
+  --shadow-popover: 0 16px 40px rgb(0 0 0 / 18%);
+
+  --rail-width: 260px;
+  --rail-border: 1px solid var(--border);
+  --rail-padding: 12px 10px 14px;
+  --topbar-height: 60px;
+  --content-max: 768px;
+  --composer-max: 768px;
+  --greeting-size: 30px;
+  --greeting-weight: 500;
+  --greeting-letter: -0.01em;
+  --user-bubble-bg: #f4f4f4;
+  --user-bubble-text: #0d0d0d;
+  --rail-radius: 10px;
+  --assistant-avatar-bg: #f4f4f4;
+  --assistant-avatar-color: #0d0d0d;
+  --landing-glow: transparent;
+  --landing-glow-soft: transparent;
+  --send-bg: #0d0d0d;
+  --send-contrast: #ffffff;
+  --account-pill-bg: #0d0d0d;
+  --account-pill-text: #ffffff;
+  --account-pill-border: #0d0d0d;
+  --account-avatar-bg: #10a37f;
+  --account-avatar-text: #ffffff;
+  --banner-bg: #fff7e0;
+  --banner-border: #f0d58a;
+  --banner-text: #6b4a00;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #131314;
+  --bg-elevated: #1e1f20;
+  --sidebar-bg: #1e1f20;
+  --sidebar-hover: #2a2b2d;
+  --sidebar-active: #333537;
+  --text: #e3e3e3;
+  --text-muted: #b0b2b5;
+  --text-subtle: #8e918f;
+  --border: #3c3f41;
+  --accent: #a8c7fa;
+  --accent-contrast: #062e6f;
+  --composer-bg: #1e1f20;
+  --composer-border: #3c3f41;
+  --composer-shadow: 0 1px 3px rgb(0 0 0 / 40%);
+  --chip-bg: #26282b;
+  --chip-border: #3c3f41;
+  --chip-hover: #303236;
+  --danger: #f2b8b5;
+  --warning: #f7c76a;
+  --success: #8ce99a;
+  --user-bubble-bg: #2a2b2d;
+  --user-bubble-text: #e3e3e3;
+  --assistant-avatar-bg: #2a2b2d;
+  --assistant-avatar-color: #e3e3e3;
+  --landing-glow: rgb(168 199 250 / 11%);
+  --landing-glow-soft: rgb(168 199 250 / 7%);
+  --send-bg: #a8c7fa;
+  --send-contrast: #062e6f;
+  --account-pill-bg: #a8c7fa;
+  --account-pill-text: #062e6f;
+  --account-pill-border: transparent;
+  --account-avatar-bg: #a8c7fa;
+  --account-avatar-text: #062e6f;
+  --banner-bg: #2b2410;
+  --banner-border: #5c4a1a;
+  --banner-text: #f7c76a;
+  --focus-ring: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+[data-skin='chatgpt'][data-theme='dark'] {
+  --bg: #212121;
+  --bg-elevated: #2f2f2f;
+  --sidebar-bg: #171717;
+  --sidebar-hover: #242424;
+  --sidebar-active: #2f2f2f;
+  --text: #ececec;
+  --text-muted: #a8a8a8;
+  --text-subtle: #8f8f8f;
+  --border: #333333;
+  --accent: #ffffff;
+  --accent-contrast: #0d0d0d;
+  --composer-bg: #303030;
+  --composer-border: #424242;
+  --composer-shadow: 0 1px 2px rgb(0 0 0 / 30%);
+  --chip-bg: #2a2a2a;
+  --chip-border: #3a3a3a;
+  --chip-hover: #343434;
+  --danger: #f2b8b5;
+  --warning: #f7c76a;
+  --success: #8ce99a;
+  --user-bubble-bg: #2f2f2f;
+  --user-bubble-text: #ececec;
+  --assistant-avatar-bg: #2f2f2f;
+  --assistant-avatar-color: #ececec;
+  --send-bg: #ffffff;
+  --send-contrast: #0d0d0d;
+  --account-pill-bg: #ffffff;
+  --account-pill-text: #0d0d0d;
+  --account-pill-border: #ffffff;
+  --account-avatar-bg: #ffffff;
+  --account-avatar-text: #0d0d0d;
+  --banner-bg: #2b2410;
+  --banner-border: #5c4a1a;
+  --banner-text: #f7c76a;
+  --focus-ring: color-mix(in srgb, var(--accent) 42%, transparent);
+}
+
+/* Initial paint fallback before SkinProvider resolves the system theme. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --bg: #131314;
+    --bg-elevated: #1e1f20;
+    --sidebar-bg: #1e1f20;
+    --sidebar-hover: #2a2b2d;
+    --sidebar-active: #333537;
+    --text: #e3e3e3;
+    --text-muted: #b0b2b5;
+    --text-subtle: #8e918f;
+    --border: #3c3f41;
+    --accent: #a8c7fa;
+    --accent-contrast: #062e6f;
+    --composer-bg: #1e1f20;
+    --composer-border: #3c3f41;
+    --chip-bg: #26282b;
+    --chip-border: #3c3f41;
+    --chip-hover: #303236;
+    --user-bubble-bg: #2a2b2d;
+    --user-bubble-text: #e3e3e3;
+    --assistant-avatar-bg: #2a2b2d;
+    --assistant-avatar-color: #e3e3e3;
+    --landing-glow: rgb(168 199 250 / 11%);
+    --landing-glow-soft: rgb(168 199 250 / 7%);
+    --send-bg: #a8c7fa;
+    --send-contrast: #062e6f;
+    --account-pill-bg: #a8c7fa;
+    --account-pill-text: #062e6f;
+    --account-avatar-bg: #a8c7fa;
+    --account-avatar-text: #062e6f;
+    --banner-bg: #2b2410;
+    --banner-border: #5c4a1a;
+    --banner-text: #f7c76a;
+  }
+
+  [data-skin='chatgpt']:not([data-theme]) {
+    --bg: #212121;
+    --bg-elevated: #2f2f2f;
+    --sidebar-bg: #171717;
+    --sidebar-hover: #242424;
+    --sidebar-active: #2f2f2f;
+    --text: #ececec;
+    --text-muted: #a8a8a8;
+    --text-subtle: #8f8f8f;
+    --border: #333333;
+    --accent: #ffffff;
+    --accent-contrast: #0d0d0d;
+    --composer-bg: #303030;
+    --composer-border: #424242;
+    --chip-bg: #2a2a2a;
+    --chip-border: #3a3a3a;
+    --chip-hover: #343434;
+    --user-bubble-bg: #2f2f2f;
+    --user-bubble-text: #ececec;
+    --assistant-avatar-bg: #2f2f2f;
+    --assistant-avatar-color: #ececec;
+    --send-bg: #ffffff;
+    --send-contrast: #0d0d0d;
+    --account-pill-bg: #ffffff;
+    --account-pill-text: #0d0d0d;
+    --account-avatar-bg: #ffffff;
+    --account-avatar-text: #0d0d0d;
+  }
+}

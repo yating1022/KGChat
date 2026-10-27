@@ -29,9 +29,6 @@ jobs:
         run: npm ci
 
       - name: Build
-        env:
-          # Project pages live under https://<owner>.github.io/KGChat/
-          VITE_BASE: /KGChat/
         run: npm run build
 
       - name: Add SPA fallback

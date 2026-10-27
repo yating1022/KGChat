@@ -223,7 +223,19 @@ npm run build
 
 推送 `main` 后，`.github/workflows/deploy-static.yml` 会自动执行 `npm ci`、`npm run build`，并用 orphan 提交覆盖 `static` 分支。仓库 Settings → Pages 选择 `static` 分支的根目录即可。
 
-工作流用 `VITE_BASE=/KGChat/` 设置资源前缀，路由 basename 也随之生效。如果以后改了仓库名，需要同步修改工作流里的这个值。
+构建使用相对资源路径（`./assets/...`），所以既能挂在 GitHub Pages 的 `/KGChat/`，也能被反向代理到站点根路径 `/`。路由 basename 在运行时按当前页面所在目录推断，无需写死仓库名。
+
+反代示例（nginx）：
+
+```nginx
+location / {
+    proxy_pass https://yating1022.github.io/KGChat/;
+    proxy_set_header Host yating1022.github.io;
+    proxy_set_header X-Forwarded-Proto https;
+}
+```
+
+反代时请确保未知路径也回落到 `index.html`（GitHub Pages 的 `404.html` 已由工作流生成）。
 
 > 首次发布如果 Actions 无法推送 `static` 分支，请在 Settings → Actions → General → Workflow permissions 里允许 read and write。
 

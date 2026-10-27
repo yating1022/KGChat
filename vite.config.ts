@@ -45,9 +45,9 @@ function productionCspPlugin(): Plugin {
 // fallback for environments where the browser blocks the cross-origin request;
 // it is not used unless the API base URL is configured to `/saduck-api`.
 export default defineConfig({
-  // GitHub Pages project sites are served from /<repo>/, so the build workflow
-  // sets VITE_BASE=/KGChat/. Local dev keeps the root base.
-  base: process.env.VITE_BASE || '/',
+  // Relative asset URLs work both on GitHub Pages (/KGChat/) and behind a
+  // reverse proxy mounted at the site root (/).
+  base: process.env.VITE_BASE || './',
   plugins: [react(), tailwindcss(), productionCspPlugin()],
   server: {
     port: 4521,
